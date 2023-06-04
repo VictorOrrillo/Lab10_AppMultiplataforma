@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab10.PickerDemo">
+    <ScrollView>
+        <StackLayout Margin="20,35,20,20">
+            <Frame Background="#ED8554" Padding="5" Margin="5">
+                <Label Text="Monkeys" FontSize="25" 
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center" 
+                       />
+            </Frame>
+            <Frame BackgroundColor="#8AB6F1" Padding="5" Margin="5" >
+                <Picker Title="Seleccionar mono"                     
+                    ItemsSource="{Binding Monkeys}" 
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SelectedMonkey}" />
+            </Frame>
+            
+            <Label Text="{Binding SelectedMonkey.Name}"
+                   HorizontalOptions="Center" 
+                   Style="{DynamicResource TitleStyle}" />
+            <Label Text="{Binding SelectedMonkey.Location}"
+                   FontAttributes="Italic" HorizontalOptions="Center" />
+            <Image Source="{Binding SelectedMonkey.ImageUrl}" 
+                   HeightRequest="200" WidthRequest="200"
+                   HorizontalOptions="CenterAndExpand" />
+            <Frame BackgroundColor="#A2CDC5" Padding="5" Margin="5">
+                <Label Text="{Binding SelectedMonkey.Details}" FontSize="20" 
+                   Style="{DynamicResource BodyStyle}" />
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
